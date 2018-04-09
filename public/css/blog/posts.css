@@ -1,0 +1,15 @@
+.container-homepage-posts{
+    margin-top: 100px;
+}
+.btn-showmore-posts{
+    border: none;
+    outline: none;
+    background-color:#131f3e;
+    display: block;
+    margin: auto;
+    margin-top:50px;
+    width:140px;
+    height:40px;
+    color:white;
+    cursor: pointer;
+}

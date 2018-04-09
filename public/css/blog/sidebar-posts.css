@@ -1,0 +1,18 @@
+.container-categories{
+    text-align:center;
+}
+.blogs-list{
+    text-align: center;
+    list-style:none;
+}
+.blog-list{
+    color: #3876c8;
+    cursor: pointer;
+    padding:10px;
+    display: block;
+    width:150px;
+    margin:auto;
+}
+.blog-list:hover{
+    text-decoration: underline;
+}

@@ -1,0 +1,33 @@
+.sidebar{
+}
+.toggle-menu-blogs{
+    background:none;
+    border: none;
+    padding:10px;
+    cursor: pointer;
+    outline: none;
+    display: block;
+    margin: auto;
+}
+.sidebar .container-blogs{
+    height:auto;
+    background-color: rgb(246, 246, 246);
+    border: 1px solid #cecece;
+    text-align:center;
+    display: block;
+}
+.blogs-list{
+    list-style: none;
+    text-align:center;
+    padding:0;
+}
+.blog-list{
+    padding:10px;
+}
+.blog-list a{
+    color: #47a8ed;
+    cursor: pointer;
+}
+.blog-list a:hover{
+    text-decoration: underline;
+}
