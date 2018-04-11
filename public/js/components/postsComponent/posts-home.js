@@ -4,7 +4,7 @@ express.renderComponent(function () {
 express.renderComponent(function (data) {
     return (`
         <div class="container-homepage-posts">
-        <link rel="stylesheet" href="css/posts-home.css">
+       <link rel="stylesheet" href="css/posts-home.css">
         <div class="wrapper">
         ${express.loopComponent(data.ajax.data, function (post) {
             return (`<div class="post-container">

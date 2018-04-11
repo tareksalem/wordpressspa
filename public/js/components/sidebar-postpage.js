@@ -6,7 +6,7 @@ express.renderComponent(function (data) {
     return (`
     
            <div class="container-sidebar-categories container-categories">
-           <link rel="stylesheet" href="css/blog/sidebar-posts.css"/>
+                <link rel="stylesheet" href="css/blog/sidebar-posts.css"/>
                               <h4>choose the category</h4>
                 <ul class="categoies blogs-list">
                     ${express.loopComponent(data.ajax.data, function (category, i) {

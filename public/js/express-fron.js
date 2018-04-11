@@ -442,38 +442,28 @@ function Express() {
                         script.src = src;
                         container.firstElementChild.appendChild(script);
 
-                    } else if (src.match(/.css$/)) {
-                        var style = document.createElement("link");
-                        style.rel = "stylesheet";
-                        style.href = src;
-                        container.firstElementChild.appendChild(style);
+                        // } else i
+                        // }
                     }
                 });
             }
             if (options && options.style) {
-                for (var css in options.style) {
-                    var element = container.firstElementChild
-                    for (var f in options.style[css]) {
-                        if (element.querySelectorAll("*") === null) {
-                            if (element.tagName.toLowerCase() === css
-                                || element.classList.contains(css) || element.id === css) {
-                                element.style.cssText += options.style[css];
-                            }
-                        } else {
-                            if (element.tagName.toLowerCase() === css
-                                || element.classList.contains(css) || element.id === css) {
-                                element.style.cssText += options.style[css];
-                            }
-                            if (element.querySelectorAll(css) !== null) {
-                                element.querySelectorAll(css).forEach(function (elem) {
-                                    elem.style.cssText += options.style[css];
-
-                                });
-                            }
-                        }
-
+                var style = options.style;
+                Object.keys(style).forEach(function (el) {
+                    if (el === "component") {
+                        var cssElement = container.firstElementChild;
+                        Object.keys(style[el]).forEach(function (objStyle) {
+                            cssElement.style[objStyle] = style[el][objStyle];
+                        });
+                    } else {
+                        var cssElements = container.firstElementChild.querySelectorAll(el);
+                        cssElements.forEach(function (cssElement) {
+                            Object.keys(style[el]).forEach(function (objStyle) {
+                                cssElement.style[objStyle] = style[el][objStyle];
+                            });
+                        });
                     }
-                }
+                })
             }
             function Elements() {
                 this.element = container.firstElementChild.cloneNode(true);
@@ -531,17 +521,43 @@ function Express() {
             component.cb = cb
             component.self = elements.element;
             component.name = options && options.name ? options.name : "defaultComponent";
+            component.id = Math.random().toString(36).substr(2, 9);
             // express.components.forEach(function (comp) {
             //     if (comp === component) {
                     // return null;
                 // } else {
 
             DomComponents.push(component);
-                // }
-            // });
             component.update = function () {
                 document.querySelector(parent).innerHTML = "";
                 return writeIt(data)
+            }
+            //function to check about the scripts
+            function checkScripts(resolve, rejected) {
+                if (options && options.scripts && options.scripts.length > 0) {
+                    options.scripts.forEach(function (src) {
+                        if (src.match(/.css$/)) {
+                            var style = document.createElement("link");
+                            style.rel = "stylesheet";
+                            style.href = src;
+                            style.as = "style"
+                            document.head.appendChild(style)
+                            if (document.head.hasChildNodes(style)) {
+                                return resolve(style);
+                            }
+                        } else {
+                            return rejected();
+                        }
+                    })
+                } else {
+                    return rejected();
+                }
+            }
+            //function to load css files with promises
+            function loadCssFile() {
+                return new Promise(function (resolve, rejected) {
+                    checkScripts(resolve, rejected);
+                });
             }
             if (finish) {
                 //function to access on the elements inside component with its expName attribute
@@ -577,64 +593,57 @@ function Express() {
                     if (typeof content === "string") ;
                     return elem.insertAdjacentHTML("beforeend", content);
                 };
-                //function to make events of the component
-                var beforeLoadingArr = [];
-                options && options.beforeLoading ? beforeLoadingArr.push(options.beforeLoading): null;
-                if (beforeLoadingArr.length >= 1) {
-                    beforeLoadingArr.push(options.beforeLoading);
-                    newComponent = elements.element.cloneNode();
-                    newComponent.innerHTML = "";
-                    newComponent.style.display = getComputedStyle(element).getPropertyValue("display") || "block";
-                    newComponent.style.opacity = getComputedStyle(element).getPropertyValue("opacity") || 1;
-                    options.beforeLoading.func(newComponent);
-                    if (typeof parent === "string") {
-                        return document.querySelector(parent).appendChild(elements.element);
-                    } else if (typeof parent === "object") {
-                        return parent.appendChild(elements.element)
-                    }
-                    return setTimeout(function () {
-                        if (typeof parent === "string") {
-                            if (document.querySelector(parent).hasChildNodes()) {
-                                // document.querySelector(parent).replaceChild(elements.element, newComponent);
+                if (typeof parent === "string") {
+                    loadCssFile().then(function (style) {
+                        setTimeout(function () {
+                            document.querySelector(parent).appendChild(elements.element);
+                            if (document.querySelector(parent).hasChildNodes(elements.element)) {
+                                elements.element.insertBefore(style, elements.element.children[0])
+                                return finish(component)
                             }
-                            // document.querySelector(parent).appendChild(elements.element);
-                        } else if (typeof parent === "object") {
-                            parent.removeChild(newComponent);
-                            parent.appendChild(elements.element)
-                        }
+                        }, 50);
+                    }).catch(function () {
+                         document.querySelector(parent).appendChild(elements.element);
                         return finish(component);
-                    }, options.beforeLoading.timer);
-
-                } else if (beforeLoadingArr.length === 0) {
-                    if (typeof parent === "string") {
-                        document.querySelector(parent).appendChild(elements.element);
-                    } else if (typeof parent === "object") {
+                    });
+                } else if (typeof parent === "object") {
+                    loadCssFile().then(function () {
+                        setTimeout(function () {
+                            parent.appendChild(elements.element)
+                            if (parent.hasChildNodes(elements.element)) {
+                                elements.element.insertBefore(style, elements.element.children[0])
+                                return finish(component);
+                            }
+                        }, 50)
+                    }).catch(function () {
                         parent.appendChild(elements.element)
-                    }
-                    return finish(component);
+                        return finish(component)
+                    });
                 }
             } else {
-                if (options && options.beforeLoading) {
-                    var newComponent = elements.element.cloneNode();
-                    newComponent.innerHTML = "";
-                    newComponent.style.display = getComputedStyle(element).getPropertyValue("display") || "block";
-                    newComponent.style.opacity = getComputedStyle(element).getPropertyValue("opacity") || 1;
-                    options.beforeLoading.func(newComponent);
-                    document.querySelector(parent).appendChild(newComponent);
-                    setTimeout(function () {
-                        document.querySelector(parent).removeChild(newComponent);
-                        if (typeof parent === "string") {
-                            return document.querySelector(parent).appendChild(elements.element);
-                        } else if (typeof parent === "object") {
-                            parent.appendChild(elements.element)
-                        }
-                    }, options.beforeLoading.timer);
-                } else {
-                    if (typeof parent === "string") {
+                if (typeof parent === "string") {
+                    loadCssFile().then(function (style) {
+                        setTimeout(function () {
+                            document.querySelector(parent).appendChild(elements.element);
+                            if (document.querySelector(parent).hasChildNodes(elements.element)) {
+                                elements.element.insertBefore(style, elements.element.children[0])
+                            }
+                        }, 50);
+                    }).catch(function () {
                         return document.querySelector(parent).appendChild(elements.element);
-                    } else if (typeof parent === "object") {
-                       parent.appendChild(elements.element)
-                    }
+                    });
+                } else if (typeof parent === "object") {
+                    loadCssFile().then(function () {
+                        setTimeout(function () {
+                            parent.appendChild(elements.element)
+                            if (parent.hasChildNodes(elements.element)) {
+                                elements.element.insertBefore(style, elements.element.children[0])
+                            }
+                        }, 50)
+                    }).catch(function () {
+                        return parent.appendChild(elements.element)
+                    });
+
                 }
             }
         }

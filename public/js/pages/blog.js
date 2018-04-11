@@ -7,8 +7,8 @@ express.renderComponent(function () {
     express.renderComponent(function (data) {
         return (`
         <div class="container-homepage-posts">
-        <link rel="stylesheet" href="css/posts-home.css">
-        <link rel="stylesheet" href="css/blog/posts.css">
+        <!--<link rel="stylesheet" href="css/posts-home.css">-->
+       <!--<link rel="stylesheet" href="css/blog/posts.css">-->
         <div class="container">
         <div class="wrapper">
         ${data.ajax.error ? "<h1>not found</h1>": ""}
@@ -47,7 +47,8 @@ express.renderComponent(function () {
             duration: 300
         },
         scripts: [
-            // "css/posts-home.css"
+            "css/posts-home.css",
+            "css/blog/posts.css"
         ],
         data: {
             clicked: 1,

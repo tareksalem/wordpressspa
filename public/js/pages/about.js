@@ -1,15 +1,15 @@
-express.renderComponent(function () {
-    return (`<div class="loader"></div>`)
-}, ".content-app")
+// express.renderComponent(function () {
+//     return (`<div class="loader"></div>`)
+// }, ".content-app")
 
 
-setTimeout(renderAboutPage, 1000);
-function renderAboutPage() {
-    express.filterContent(".content-app");
+// setTimeout(renderAboutPage, 1000);
+// function renderAboutPage() {
     express.renderComponent(function (data) {
+        express.filterContent(".content-app");
         return (`
         <div class="about-page">
-                      <link rel="stylesheet" href="css/about/about-page.css"/>
+                      <!--<link rel="stylesheet" href="css/about/about-page.css"/>-->
               <div class="container">
               <div class=" container-about">
                 <div class="container-image-about">
@@ -25,15 +25,35 @@ function renderAboutPage() {
         </div>
     `)
     }, ".content-app", {
+        scripts: ["/css/about/about-page.css"],
+        beforeLoading: {
+            timer: 1000,
+            func: function (component) {
+                var div = document.createElement("div");
+                div.classList.add("loader");
+                component.appendChild(div)
+            }
+        },
         animate: {
             // animations: [{opacity: 0}, {opacity: 1}],
             // options: {duration: 1300, fill: "forwards"}
             animations: [{right: "100%"}, {right: "0"}],
-            options: {duration: 300, fill: "forwards"}
+            options: {duration: 600, fill: "forwards"}
         },
-        style: {}
+        // style: {
+        //     "component" : {
+        //         color: "red",
+        //         backgroundColor: "black"
+        //     },
+        //     ".container-about": {
+        //         backgroundColor: "red"
+        //     },
+        //     ".container": {
+        //         backgroundColor: "black"
+        //     }
+        // }
 
     }, function (component) {
 
     });
-}
+// }

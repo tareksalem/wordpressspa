@@ -8,7 +8,7 @@ if (windowParams.postId) {
         var post = data.ajax.data;
         return (`
                 <div class="container-show-post">
-                    <link rel="stylesheet" href="css/blog/post.css"/>
+                <link rel="stylesheet" href="css/blog/post.css"/>
                     <div class="container">
                     <div class="container-post-and-sidebar">
                              ${post.id ?
