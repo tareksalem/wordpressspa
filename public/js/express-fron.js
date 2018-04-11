@@ -543,7 +543,9 @@ function Express() {
                             style.as = "style"
                             document.head.appendChild(style)
                             if (document.head.hasChildNodes(style)) {
-                                return resolve(style);
+                            	setTimeout(function () {
+                            		return resolve(style);
+                            	}, 50)
                             }
                         } else {
                             return rejected();
