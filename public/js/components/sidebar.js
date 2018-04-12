@@ -28,7 +28,7 @@ express.renderComponent(function (data) {
     `)
 }, ".sidebar", {
     fadeIn: {
-        duration: 300
+        duration: 1000
     },
     style: {
         ".container-blogs": "display:block;"
