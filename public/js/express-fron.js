@@ -542,14 +542,12 @@ function Express() {
                             style.href = src;
                             style.as = "style"
                             document.head.appendChild(style)
-                            style.addEventListener("load", function () {
-                            // if (document.head.hasChildNodes(style)) {
+                            if (document.head.hasChildNodes(style)) {
                                 return resolve(style)
-                            })
 
-                            // } else {
-                            //     return resolve(style)
-                            // }
+                            } else {
+                                return resolve(style)
+                            }
 
                         } else {
                             return rejected();
