@@ -603,7 +603,7 @@ function Express() {
                                 elements.element.insertBefore(style, elements.element.children[0])
                                 return finish(component)
                             }
-                        }, 50);
+                        }, 100);
                     }).catch(function () {
                          document.querySelector(parent).appendChild(elements.element);
                         return finish(component);
@@ -616,7 +616,7 @@ function Express() {
                                 elements.element.insertBefore(style, elements.element.children[0])
                                 return finish(component);
                             }
-                        }, 50)
+                        }, 100)
                     }).catch(function () {
                         parent.appendChild(elements.element)
                         return finish(component)
@@ -630,7 +630,7 @@ function Express() {
                             if (document.querySelector(parent).hasChildNodes(elements.element)) {
                                 elements.element.insertBefore(style, elements.element.children[0])
                             }
-                        }, 50);
+                        }, 100);
                     }).catch(function () {
                         return document.querySelector(parent).appendChild(elements.element);
                     });
@@ -641,7 +641,7 @@ function Express() {
                             if (parent.hasChildNodes(elements.element)) {
                                 elements.element.insertBefore(style, elements.element.children[0])
                             }
-                        }, 50)
+                        }, 100)
                     }).catch(function () {
                         return parent.appendChild(elements.element)
                     });
