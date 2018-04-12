@@ -542,11 +542,15 @@ function Express() {
                             style.href = src;
                             style.as = "style"
                             document.head.appendChild(style)
-                            if (document.head.hasChildNodes(style)) {
+                            style.addEventListener("load", function () {
+                            // if (document.head.hasChildNodes(style)) {
+                                return resolve(style)
+                            })
 
-                                return resolve(style);
+                            // } else {
+                            //     return resolve(style)
+                            // }
 
-                            }
                         } else {
                             return rejected();
                         }
@@ -601,9 +605,9 @@ function Express() {
                             document.querySelector(parent).appendChild(elements.element);
                             if (document.querySelector(parent).hasChildNodes(elements.element)) {
                                 elements.element.insertBefore(style, elements.element.children[0])
-                                return finish(component)
                             }
                         }, 100);
+                        return finish(component)
                     }).catch(function () {
                          document.querySelector(parent).appendChild(elements.element);
                         return finish(component);
@@ -614,9 +618,9 @@ function Express() {
                             parent.appendChild(elements.element)
                             if (parent.hasChildNodes(elements.element)) {
                                 elements.element.insertBefore(style, elements.element.children[0])
-                                return finish(component);
                             }
                         }, 100)
+                        return finish(component);
                     }).catch(function () {
                         parent.appendChild(elements.element)
                         return finish(component)

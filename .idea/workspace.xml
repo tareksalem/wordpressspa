@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3911b9f7-1d73-49b4-ab64-84ede1dad9ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/components/sidebar.js" afterPath="$PROJECT_DIR$/public/js/components/sidebar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/express-fron.js" afterPath="$PROJECT_DIR$/public/js/express-fron.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -16,26 +17,67 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="express-fron.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="express-fron.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/express-fron.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="583">
-              <caret line="649" column="13" lean-forward="true" selection-start-line="649" selection-start-column="13" selection-end-line="649" selection-end-column="13" />
+            <state relative-caret-position="108">
+              <caret line="545" column="72" lean-forward="true" selection-start-line="545" selection-start-column="72" selection-end-line="545" selection-end-column="72" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="slider.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/components/slider.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="734">
+              <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+                <marker date="1523021592027" expanded="true" signature="1414:2515" ph="..." />
+                <marker date="1523021592027" expanded="true" signature="1605:2010" ph="..." />
+                <marker date="1523021592027" expanded="true" signature="1655:1807" ph="..." />
+                <marker date="1523021592027" expanded="true" signature="1863:1979" ph="..." />
+                <marker date="1523021592027" expanded="true" signature="2151:2448" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/components/sidebar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+            <state relative-caret-position="498">
+              <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
               <folding>
                 <marker date="1523539480510" expanded="true" signature="190:1113" ph="..." />
                 <marker date="1523539480510" expanded="true" signature="381:1061" ph="..." />
                 <marker date="1523539480510" expanded="true" signature="573:904" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sidebar-postpage.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/js/components/sidebar-postpage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+              <folding>
+                <marker date="1523348340844" expanded="true" signature="240:781" ph="..." />
+                <marker date="1523348340844" expanded="true" signature="424:763" ph="..." />
+                <marker date="1523348340844" expanded="true" signature="591:689" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/html/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,8 +90,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/express-fron.js" />
         <option value="$PROJECT_DIR$/public/js/components/sidebar.js" />
+        <option value="$PROJECT_DIR$/public/js/express-fron.js" />
       </list>
     </option>
   </component>
@@ -102,6 +144,12 @@
               <item name="wordpressspa" type="b2602c69:ProjectViewProjectNode" />
               <item name="wordpressspa" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="html" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="wordpressspa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="wordpressspa" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -147,12 +195,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523487396005</updated>
-      <workItem from="1523487399959" duration="1436000" />
+      <workItem from="1523487399959" duration="5341000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1436000" />
+    <option name="totallyTimeSpent" value="5341000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
@@ -188,23 +236,58 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/js/express-fron.js">
+    <entry file="file://$PROJECT_DIR$/public/js/components/sidebar-postpage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="583">
-          <caret line="649" column="13" lean-forward="true" selection-start-line="649" selection-start-column="13" selection-end-line="649" selection-end-column="13" />
+        <state relative-caret-position="162">
+          <caret line="9" column="58" lean-forward="true" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding>
+            <marker date="1523348340844" expanded="true" signature="240:781" ph="..." />
+            <marker date="1523348340844" expanded="true" signature="424:763" ph="..." />
+            <marker date="1523348340844" expanded="true" signature="591:689" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/html/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="17" column="6" lean-forward="true" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/components/sidebar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="30" column="20" lean-forward="false" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+        <state relative-caret-position="498">
+          <caret line="45" column="25" lean-forward="true" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
           <folding>
             <marker date="1523539480510" expanded="true" signature="190:1113" ph="..." />
             <marker date="1523539480510" expanded="true" signature="381:1061" ph="..." />
             <marker date="1523539480510" expanded="true" signature="573:904" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/components/slider.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="734">
+          <caret line="90" column="0" lean-forward="false" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <marker date="1523021592027" expanded="true" signature="1414:2515" ph="..." />
+            <marker date="1523021592027" expanded="true" signature="1605:2010" ph="..." />
+            <marker date="1523021592027" expanded="true" signature="1655:1807" ph="..." />
+            <marker date="1523021592027" expanded="true" signature="1863:1979" ph="..." />
+            <marker date="1523021592027" expanded="true" signature="2151:2448" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/express-fron.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="545" column="72" lean-forward="true" selection-start-line="545" selection-start-column="72" selection-end-line="545" selection-end-column="72" />
+          <folding />
         </state>
       </provider>
     </entry>
